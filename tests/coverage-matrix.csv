@@ -1,0 +1,31 @@
+endpoint,method,scenario,implemented(Y/N),test-file,test-line,priority,ai_or_manual,notes
+/pet,POST,Valid Pet Creation (all fields),Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should create a valid pet with all fields"
+/pet,POST,Minimal Pet Creation (required fields),Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should create pet with minimal required fields"
+/pet,POST,Missing Required Fields (no name/photoUrls),N,, ,P1,AI,No explicit test for missing required fields
+/pet,GET,Valid Pet ID (existing),Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should retrieve pet by ID or return not found"
+/pet,GET,Non-Existent Pet,Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should return 404 for non-existent pet"
+/pet,GET,Invalid ID Format (non-numeric),Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should handle invalid ID format gracefully"
+/pet,GET,Negative ID (e.g. -1),Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should handle negative pet ID"
+/pet,PUT,Valid Update (existing pet),Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should update pet status successfully"
+/pet,PUT,Partial Update (specific fields),Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should update pet with partial data"
+/pet,PUT,Update Non-Existent Pet,N,, ,P2,AI,No explicit test for updating non-existent pet
+/pet,DELETE,Delete Existing Pet,Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should delete existing pet"
+/pet,DELETE,Delete Non-Existent Pet,Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should return error for non-existent pet"
+/pet,GET,Find by Status - valid filter (available),Y,tests/petstore.spec.ts,,P0,AI,Implemented
+/pet,GET,Find by Status - multiple statuses (available,pending),Y,tests/petstore.spec.ts,,P1,AI,Implemented
+/pet,GET,Find by Status - invalid status value,Y,tests/petstore.spec.ts,,P1,AI,Implemented (handles lenient/strict)
+/store/order,POST,Valid Order (petId,quantity>0),Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should place a valid order"
+/store/order,POST,Negative Quantity,N? ,tests/petstore.spec.ts,,P1,AI,Implemented as "accept or reject" (test exists allowing lenient API)
+/store/order,POST,Zero Quantity,N? ,tests/petstore.spec.ts,,P1,AI,Implemented as "accept or reject" (test exists allowing lenient API)
+/store/order,GET,Valid Order ID (1-10),Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should retrieve order in valid range (1-10)"
+/store/order,GET,Out of Range ID (>10),Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should return 400 for order ID outside valid range (>10)"
+/store/order,GET,Negative Order ID,Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should handle negative order ID"
+/store/order,DELETE,Delete Valid Order (existing),Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should delete order with valid ID"
+/store/order,DELETE,Delete Invalid Order (non-existent),N,, ,P2,AI,No explicit test for deleting specific non-existent order id
+/store/inventory,GET,Retrieve Inventory,Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should return inventory map"
+/user,POST,Valid User Creation (all fields),Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should create user with valid data"
+/user,POST,Minimal User (username only),Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should create user with minimal fields"
+/user,GET,Get Existing User,Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should retrieve user by username"
+/user,GET,Get Non-Existent User,Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should return 404 for non-existent user"
+/user,GET,Valid Login (correct credentials),Y,tests/petstore.spec.ts,,P0,AI,Implemented as "Should attempt login with credentials"
+/user,GET,Invalid Credentials (wrong password),Y,tests/petstore.spec.ts,,P1,AI,Implemented as "Should handle login with invalid credentials"
